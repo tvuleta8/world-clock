@@ -34,7 +34,7 @@ function updateCity(event) {
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
-  citiesElement.innerHTML = (
+  citiesElement.innerHTML = `
     <div class="city">
       <div>
         <h2>${cityName}</h2>
@@ -44,13 +44,7 @@ function updateCity(event) {
         ${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small>
       </div>
     </div>
-  );
-
-  // Create a link and append it to citiesElement
-  let linkElement = document.createElement("a");
-  linkElement.href = "/";
-  linkElement.textContent = "All cities";
-  citiesElement.appendChild(linkElement);
+  `;
 }
 
 updateTime();
